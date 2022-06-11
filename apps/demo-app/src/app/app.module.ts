@@ -1,11 +1,55 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppLayoutModule } from './layout/layout.module';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
+  imports: [
+    // Angular-Modules
+    BrowserModule,
+    BrowserAnimationsModule,
+
+    // UI-Modules
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+
+    // App-Module
+    LayoutModule,
+    AppLayoutModule,
+
+    RouterModule.forRoot([
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home',
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+      {
+        path: 'clickboard',
+        loadChildren: () =>
+          import('@pipeline-example/features/clicker-ui').then(
+            (m) => m.FeaturesClickerUiModule
+          ),
+      },
+    ]),
+  ],
   declarations: [AppComponent],
-  imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
 })

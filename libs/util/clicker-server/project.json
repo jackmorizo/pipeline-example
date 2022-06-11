@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/util/clicker-server",
+  "sourceRoot": "libs/util/clicker-server/src",
+  "prefix": "pipeline-example",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/util/clicker-server"],
+      "options": {
+        "project": "libs/util/clicker-server/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/util/clicker-server/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/util/clicker-server/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/util/clicker-server"],
+      "options": {
+        "jestConfig": "libs/util/clicker-server/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/util/clicker-server/src/**/*.ts",
+          "libs/util/clicker-server/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["util"]
+}

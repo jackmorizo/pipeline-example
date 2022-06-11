@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@pipeline-example/data-access/clicker-api": [
+        "libs/data-access/clicker-api/src/index.ts"
+      ],
+      "@pipeline-example/features/clicker-ui": [
+        "libs/features/clicker-ui/src/index.ts"
+      ],
+      "@pipeline-example/util/clicker-server": [
+        "libs/util/clicker-server/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
