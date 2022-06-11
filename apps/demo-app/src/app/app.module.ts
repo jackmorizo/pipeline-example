@@ -12,23 +12,18 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppLayoutModule } from './layout/layout.module';
 import { HomeComponent } from './pages/home/home.component';
+import { ClickerApiModule } from '@pipeline-example/data-access/clicker-api';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+
+console.log(environment);
 
 @NgModule({
   imports: [
     // Angular-Modules
     BrowserModule,
     BrowserAnimationsModule,
-
-    // UI-Modules
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-
-    // App-Module
-    LayoutModule,
-    AppLayoutModule,
+    HttpClientModule,
 
     RouterModule.forRoot([
       {
@@ -48,6 +43,20 @@ import { HomeComponent } from './pages/home/home.component';
           ),
       },
     ]),
+
+    // UI-Modules
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+
+    // App-Module
+    LayoutModule,
+    AppLayoutModule,
+
+    // API-Modules
+    ClickerApiModule.forRoot(environment.clickerAPI),
   ],
   declarations: [AppComponent],
   providers: [],

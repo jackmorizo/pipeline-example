@@ -6,10 +6,11 @@ export interface ENV_INTERFACE {
 }
 
 export const environment: ENV_INTERFACE = {
-  production: true,
+  production: false,
 
   clickerAPI: {
-    rootUrl: new URL('localhost:4300'),
+    rootUrl: '/api/',
+    //rootUrl: new URL('api/', 'http://localhost:3333'),
     useLocal: false,
   },
 };
