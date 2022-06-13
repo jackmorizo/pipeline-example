@@ -11,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppLayoutModule } from './layout/layout.module';
-import { HomeComponent } from './pages/home/home.component';
 import { ClickerApiModule } from '@pipeline-example/data-access/clicker-api';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,11 +28,7 @@ console.log(environment);
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home',
-      },
-      {
-        path: 'home',
-        component: HomeComponent,
+        redirectTo: 'clickboard',
       },
       {
         path: 'clickboard',

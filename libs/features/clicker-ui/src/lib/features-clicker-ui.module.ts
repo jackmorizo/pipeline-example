@@ -13,7 +13,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 // feature modules
 import { ClickBordComponent } from './board/board.component';
-import { ClickBoardAPICheckComponent } from './api-check/api-check.component';
 import { ClickBordStatisticsComponent } from './statistics/statistics.component';
 import { ClickerApiModule } from '@pipeline-example/data-access/clicker-api';
 
@@ -27,12 +26,7 @@ import { ClickerApiModule } from '@pipeline-example/data-access/clicker-api';
         path: 'stats',
         pathMatch: 'full',
         component: ClickBordStatisticsComponent,
-      },
-      {
-        path: 'api-check',
-        pathMatch: 'full',
-        component: ClickBoardAPICheckComponent,
-      },
+      }
     ]),
 
     // UI Modules
@@ -50,7 +44,6 @@ import { ClickerApiModule } from '@pipeline-example/data-access/clicker-api';
   ],
   declarations: [
     ClickBordComponent,
-    ClickBoardAPICheckComponent,
     ClickBordStatisticsComponent,
   ],
 })

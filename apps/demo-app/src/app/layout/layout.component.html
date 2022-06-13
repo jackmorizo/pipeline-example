@@ -3,15 +3,10 @@
 }" class="mat-app-background">
     <mat-sidenav id="sidenav" #sidenav mode="push">
         <mat-nav-list>
-            <a mat-list-item routerLink="/home" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">
-                Home</a>
             <a mat-list-item routerLink="/clickboard" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">
                 Clickboard</a>
             <a mat-list-item routerLink="/clickboard/stats" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">
                 Statistics</a>
-            <a mat-list-item routerLink="/clickboard/api-check" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">
-                API-Check
-            </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
