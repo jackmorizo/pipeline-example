@@ -36,11 +36,9 @@ export class ClickerAPIRemoteService extends ClickerAPIService {
         refresh: this.config.rootUrl + 'data',
       };
     }
-    console.log(this.endpoints);
   }
 
   sendClick(click: ClickEntry): void {
-    console.log(this.endpoints.click);
     this.http.post(this.endpoints.click, click ).subscribe({
       next: () => this.refreshData(),
     });

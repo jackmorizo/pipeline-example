@@ -12,7 +12,6 @@ export class AppService {
 
   addData(entry: ClickEntry) {
     this.entries.push(entry);
-    console.table(this.entries);
   }
 
   deleteData() {

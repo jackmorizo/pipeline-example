@@ -21,7 +21,7 @@ console.log(environment);
 @NgModule({
   imports: [
     // Angular-Modules
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
 

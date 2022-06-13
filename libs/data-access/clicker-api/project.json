@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/data-access/clicker-api"],
+      "outputs": [
+        "dist/libs/data-access/clicker-api"
+      ],
       "options": {
         "project": "libs/data-access/clicker-api/ng-package.json"
       },
@@ -22,7 +24,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/data-access/clicker-api"],
+      "outputs": [
+        "coverage/libs/data-access/clicker-api"
+      ],
       "options": {
         "jestConfig": "libs/data-access/clicker-api/jest.config.js",
         "passWithNoTests": true
@@ -38,5 +42,10 @@
       }
     }
   },
-  "tags": ["data-access"]
+  "tags": [
+    "data-access"
+  ],
+  "implicitDependencies": [
+    "api"
+  ]
 }

@@ -4,9 +4,7 @@
     "api": "apps/api",
     "data-access-clicker-api": "libs/data-access/clicker-api",
     "demo-app": "apps/demo-app",
-    "demo-app-e2e": "apps/demo-app-e2e",
     "features-clicker-ui": "libs/features/clicker-ui",
-    "util-clicker-entities": "libs/util/clicker-entities",
-    "util-clicker-server": "libs/util/clicker-server"
+    "util-clicker-entities": "libs/util/clicker-entities"
   }
 }

@@ -10,7 +10,10 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -23,11 +26,11 @@
       ],
       "@pipeline-example/util/clicker-entities": [
         "libs/util/clicker-entities/src/index.ts"
-      ],
-      "@pipeline-example/util/clicker-server": [
-        "libs/util/clicker-server/src/index.ts"
       ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

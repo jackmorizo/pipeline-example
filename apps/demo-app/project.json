@@ -10,7 +10,7 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/demo-app",
+        "outputPath": "dist/apps/demo-app/browser",
         "index": "apps/demo-app/src/index.html",
         "main": "apps/demo-app/src/main.ts",
         "polyfills": "apps/demo-app/src/polyfills.ts",
@@ -72,6 +72,42 @@
       },
       "defaultConfiguration": "production"
     },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/apps/demo-app/server",
+        "main": "apps/demo-app/src/ssr.server.ts",
+        "tsConfig": "apps/demo-app/tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media",
+          "fileReplacements": [
+            {
+              "replace": "apps/demo-app/src/environments/environment.ts",
+              "with": "apps/demo-app/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "api": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/demo-app/src/environments/environment.ts",
+              "with": "apps/demo-app/src/environments/environment.api.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
@@ -88,12 +124,45 @@
       },
       "defaultConfiguration": "development"
     },
+    "serve-ssr": {
+      "executor": "@nguniversal/builders:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "demo-app:build:development",
+          "serverTarget": "demo-app:server:development"
+        },
+        "api": {
+          "browserTarget": "demo-app:build:api",
+          "serverTarget": "demo-app:server:api",
+          "proxyConfig": "apps/demo-app/proxy.conf.json"
+        },
+        "production": {
+          "browserTarget": "demo-app:build:production",
+          "serverTarget": "demo-app:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
     "serve-with-services": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
           {
             "command": "npx nx run demo-app:serve:api"
+          },
+          {
+            "command": "npx nx run api:serve"
+          }
+        ],
+        "parallel": true
+      }
+    },
+    "serve-ssr-with-services": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npx nx run demo-app:serve-ssr:api"
           },
           {
             "command": "npx nx run api:serve"
@@ -128,5 +197,7 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "app:frontend"
+  ]
 }

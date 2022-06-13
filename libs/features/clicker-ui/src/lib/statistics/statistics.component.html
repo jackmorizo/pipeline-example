@@ -1,16 +1,16 @@
-<div id="click_statistics_table_wrapper" class="mat-elevation-z8">
+<div id="click_statistics_table_wrapper" class="mat-elevation-z8" *ngIf="data$ | async as data">
     <mat-toolbar id="click_statistics_toolbar" color="primary">
         <span>Clicks logged</span>
         <button (click)="refreshData();" mat-raised-button color="accent">Refresh</button>
         <button (click)="clearData();" mat-raised-button color="warn">Clear</button>
     </mat-toolbar>
 
-    <div class="empty-state" *ngIf="dataSource.data.length === 0">
+    <div class="empty-state" *ngIf="data?.length === 0; else clickerTable">
         <h2>Nothing to see here</h2>
         <p>So far no clicks have been recorded.<br />Try to refresh the data.</p>
     </div>
 
-    <ng-container *ngIf="dataSource.data.length > 1">
+    <ng-template #clickerTable>
         <table id="click_statistics_table" mat-table matSort [dataSource]="dataSource">
 
             <ng-container matColumnDef="index">
@@ -45,6 +45,5 @@
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
             aria-label="Select page of periodic elements">
         </mat-paginator>
-    </ng-container>
-
+    </ng-template>
 </div>
