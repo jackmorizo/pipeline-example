@@ -16,5 +16,8 @@ The Pipeline has the following requirements:
 * Cache the `node_modules/.cache` folder after after all artifacts have been build. This folder contains all the hashes necessary for the utilization of the `computation caching`
 
 
+## Requirements
 
+* LTS-Version of nodejs `v16.15`
+* Access to `Azure DevOps Services` or `Azure DevOps Server`
 
